@@ -1,7 +1,11 @@
 //importar las bibliotecas
 const express = require('express');
+//Traer el objeto de conexion sequelize
+const sequelize = require("./utils/database")
 const path = require('path');
 const consolaRoutes = require('./routes/consola');
+
+
 
 const app = express();
 
@@ -45,7 +49,11 @@ app.post('/prueba3',(req,res)=>{
     res.send("Datos recibidos")
 })
 
-//Lanzar la aplicación
-app.listen(8080,()=>{
-    console.log("Servidor en línea");
-});
+sequelize.sync({force:true})
+    .then(()=>{
+        console.log("Conexión exitosa");
+        //Lanzar la aplicación
+        app.listen(8080,()=>{
+            console.log("Servidor en línea");
+        });
+    }).catch(error=>console.log(error))
