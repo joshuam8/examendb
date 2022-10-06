@@ -1,4 +1,7 @@
 const path = require("path");
+const Consola = require("../utils/database").models.Consola;
+const sequelize =require("../utils/database");
+const Sequelize = require("sequelize");
 
 // Proceso cuando se llame a la ruta
 exports.getAltaConsola = (req,res)=>{
@@ -8,7 +11,16 @@ exports.getAltaConsola = (req,res)=>{
 
 exports.postAltaConsola = (req,res)=>{
     console.log(req.body)
-    res.json({estado:"Exitoso"})
+    //INSERT INTO Consola VALUES ()
+    Consola.create(req.body)
+        .then(resultado=>{
+            console.log("Registro exitoso");//Servidor
+            res.send("Registro exitoso") //Cliente
+        })
+        .catch(error=>{
+            console.log(error); //Servidor
+            res.send("Ocurrio un error")//Cliente
+        })    
 }
 
 exports.getConsultaConsola = (req,res)=>{

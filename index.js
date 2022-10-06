@@ -49,7 +49,7 @@ app.post('/prueba3',(req,res)=>{
     res.send("Datos recibidos")
 })
 
-sequelize.sync({force:true})
+sequelize.sync()
     .then(()=>{
         console.log("Conexión exitosa");
         //Lanzar la aplicación
