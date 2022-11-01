@@ -23,6 +23,51 @@ exports.postAltaConsola = (req,res)=>{
         })    
 }
 
+exports.getConsolas = (req,res)=>{
+    //SELECT * from Consola;
+    Consola.findAll()
+        .then(consolas=>{
+            console.log("Consolas",consolas);
+            res.send(consolas);
+        })
+        .catch(e=>{
+            console.log(e);
+            res.send("Error");
+        })
+}
+
+exports.postEliminarConsola=(req,res)=>{
+    //DELETE FROM Consola WHERE id=
+    console.log(req.body)
+    Consola.destroy({
+        where:{
+            id : req.body.id
+        }
+    }).then(()=>{
+        console.log("Consola eliminada")
+        res.send("Consola eliminada")
+    }).catch(e=>{
+        console.log(e)
+        res.send("Error")
+    })
+}
+
+exports.postActualizarConsola=(req,res)=>{
+    //UPDATE Consola SET WHERE id=
+    console.log(req.body)
+    Consola.update({nombreConsola: req.body.nombreConsola},{
+        where:{
+            id: req.body.id
+        }
+    }).then(()=>{
+        console.log("Consola actualizada")
+        res.send("Consola actualiza")
+    }).catch(e=>{
+        console.log(e)
+        res.send("Error")
+    })
+}
+
 exports.getConsultaConsola = (req,res)=>{
     res.send('<h1>Datos de las consolas</h1>')
 }
