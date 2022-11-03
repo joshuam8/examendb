@@ -1,10 +1,14 @@
 const Sequelize = require('sequelize');
 
 const Consola = (sequelize) =>{
-    sequelize.define('Consola',{
-        nombreConsola: Sequelize.STRING,
-        descripcionConsola: Sequelize.STRING
+
+    sequelize.define('tabla',{
+        atributo1: Sequelize.STRING,
+        atributo2: Sequelize.STRING,
+        atributo3: Sequelize.STRING
     })
+
 }
 
 module.exports = Consola;
+//module.exports = tabla;
