@@ -1,13 +1,13 @@
 const path = require("path");
-const Consola = require("../utils/database").models.Consola;
+const Consola = require("../utils/database").models.tabla;
 const sequelize =require("../utils/database");
 const Sequelize = require("sequelize");
 
-// Proceso cuando se llame a la ruta
+/* Proceso cuando se llame a la ruta
 exports.getAltaConsola = (req,res)=>{
     //res.send('<h1>Formulario de consola</h1>')
     res.sendFile(path.join(__dirname,'..','views','formulario.html'));
-}
+}*/
 
 exports.postAltaConsola = (req,res)=>{
     console.log(req.body)
@@ -36,7 +36,7 @@ exports.getConsolas = (req,res)=>{
         })
 }
 
-exports.postEliminarConsola=(req,res)=>{
+/* exports.postEliminarConsola=(req,res)=>{
     //DELETE FROM Consola WHERE id=
     console.log(req.body)
     Consola.destroy({
@@ -66,7 +66,8 @@ exports.postActualizarConsola=(req,res)=>{
         console.log(e)
         res.send("Error")
     })
-}
+} 
+*/
 
 exports.getConsultaConsola = (req,res)=>{
     res.send('<h1>Datos de las consolas</h1>')
