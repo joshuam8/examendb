@@ -3,9 +3,9 @@ const Sequelize = require('sequelize');
 const {applyRelations} = require('./relations');
 //objeto de conexión
 
-const sequelize = new Sequelize('test','admin','Password2026',{
+const sequelize = new Sequelize('examen_JJMC','admin','qwertyuiop',{
     dialect:'mysql',
-    host:'database-1.cne03r9weewa.us-east-1.rds.amazonaws.com',
+    host:'database-1.cq7ne1ejzwcx.us-east-1.rds.amazonaws.com',
     dialectOptions:{
         options:{
             //Características especiales de la conexión
@@ -19,10 +19,10 @@ const sequelize = new Sequelize('test','admin','Password2026',{
 
 //Cargar los modelos
 const modelDefiners =[
-    require('../models/videojuego'),
+   // require('../models/videojuego'),
     require('../models/consola'),
-    require('../models/company'),
-    require('../models/consolaVideojuego')
+  //  require('../models/company'),
+    //require('../models/consolaVideojuego')
 ];
 
 //Adherir los modelos al objeto de conexion
